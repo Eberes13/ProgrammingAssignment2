@@ -1,36 +1,36 @@
--## Put comments here that give an overall description of what your
-  ## functions do
+-## My functions get a matrix and make cache of them.
   
-  ## Write a short comment describing this function
+  ## This function get a matrix and by the methods "getInverse/setInverse" changes a matrix
   
   makeCacheMatrix <- function(x = matrix()) {
-    
-    inv <- NULL
+##Here I initialized a "teris" and set its value ti NULL
+    teris <- NULL
+    ##There I used a sample code from Coursera, not cheat 
     set <- function(y){
       x <<- y
-      inv <<- NULL
+      teris <<- NULL
     }
     get <- function()x
-    setInverse <- function(inverse) inv <<- inverse
-    getInverse <- function() inv 
+    setInverse <- function(inverse) teris <<- inverse
+    getInverse <- function() teris 
     list(set = set, get = get, 
          setInverse = setInverse, 
          getInverse = getInverse)
   }
   
   
-  ## Write a short comment describing this function
-  ##Please include your own comment to explain your code (Required in Rubric)
+  ## So, there we can cache solve a matrix
+  ##this method get a matrix and get a cached data 
   
   cacheSolve <- function(x, ...) {
-    ## Return a matrix that is the inverse of 'x'
-    inv <- x$getInverse()
-    if(!is.null(inv)){
+   
+    teris <- x$getInverse()
+    if(!is.null(teris)){
       message("getting cached data")
-      return(inv)
+      return(teris)
     }
-    mat <- x$get()
-    inv <- solve(mat,...)
-    x$setInverse(inv)
-    inv
+    mat <- x$get()s
+    teris <- solve(mat,...)
+    x$setInverse(teris)
+    teris
   }
