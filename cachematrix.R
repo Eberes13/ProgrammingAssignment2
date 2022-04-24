@@ -1,37 +1,24 @@
--## My functions get a matrix and make cache of them.
-  
-  ## This function get a matrix and by the methods "getInverse/setInverse" changes a matrix
-  
-  makeCacheMatrix <- function(x = matrix()) {
-    ##Here I initialized a "teris" and set its value ti NULL
-    teris <- NULL
-    ##There I used a sample code from Coursera, and change "mean to inverse"
-    set <- function(y){
-      x <<- y
-      teris <<- NULL
-    }
-    get <- function()x
-    setInverse <- function(inverse) teris <<- inverse
-    getInverse <- function() teris 
-    list(set = set, get = get, 
-         setInverse = setInverse, 
-         getInverse = getInverse)
+makeVector <- function(x = numeric()) {
+  m <- NULL
+  set <- function(y) {
+    x <<- y
+    m <<- NULL
   }
-  
-  
-  ## So, there we can cache solve a matrix
-  ##this method get a matrix and get a cached data 
-  
-  cacheSolve <- function(x, ...) {
-    
-    teris <- x$getInverse()
-    if(!is.null(teris)){
-      message("getting cached data")
-      return(teris)
-    }
-    ##There a similar coe to Coursera, and after these operations I return a "teris" at the end.s
-    mat <- x$get()s
-    teris <- solve(mat,...)
-    x$setInverse(teris)
-    teris
+  get <- function() x
+  setmean <- function(mean) m <<- mean
+  getmean <- function() m
+  list(set = set, get = get,
+       setmean = setmean,
+       getmean = getmean)
+}
+cachemean <- function(x, ...) {
+  m <- x$getmean()
+  if(!is.null(m)) {
+    message("getting cached data")
+    return(m)
   }
+  data <- x$get()
+  m <- mean(data, ...)
+  x$setmean(m)
+  m
+}
