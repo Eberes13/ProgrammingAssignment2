@@ -3,9 +3,9 @@
   ## This function get a matrix and by the methods "getInverse/setInverse" changes a matrix
   
   makeCacheMatrix <- function(x = matrix()) {
-##Here I initialized a "teris" and set its value ti NULL
+    ##Here I initialized a "teris" and set its value ti NULL
     teris <- NULL
-    ##There I used a sample code from Coursera, not cheat 
+    ##There I used a sample code from Coursera, and change "mean to inverse"
     set <- function(y){
       x <<- y
       teris <<- NULL
@@ -23,7 +23,7 @@
   ##this method get a matrix and get a cached data 
   
   cacheSolve <- function(x, ...) {
-   
+    
     teris <- x$getInverse()
     if(!is.null(teris)){
       message("getting cached data")
