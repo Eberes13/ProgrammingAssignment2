@@ -1,7 +1,4 @@
--## My functions get a matrix and make cache of them.
-  
   ## This function get a matrix and by the methods "getInverse/setInverse" changes a matrix
-  
   makeCacheMatrix <- function(x = matrix()) {
     ##Here I initialized a "teris" and set its value ti NULL
     teris <- NULL
@@ -26,12 +23,13 @@
     
     teris <- x$getInverse()
     if(!is.null(teris)){
-      message("getting cached data")
+      message("collect cached data")
       return(teris)
     }
-    ##There a similar coe to Coursera, and after these operations I return a "teris" at the end.s
+    ##There a similar code to Coursera, and after these operations I return a "teris" at the end.
     mat <- x$get()s
     teris <- solve(mat,...)
+    ##Here the set Inverse
     x$setInverse(teris)
     teris
   }
