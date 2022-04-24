@@ -29,6 +29,7 @@
       message("getting cached data")
       return(teris)
     }
+    ##There a similar coe to Coursera, and after these operations I return a "teris" at the end.s
     mat <- x$get()s
     teris <- solve(mat,...)
     x$setInverse(teris)
